@@ -5,4 +5,3 @@ WORKDIR /var/www/api
 ENTRYPOINT [ "sh", "-c", "java -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=docker -jar /rest-0.0.1-SNAPSHOT.jar" ]
 
 EXPOSE 9090
-
