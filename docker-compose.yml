@@ -1,5 +1,19 @@
 version: '3'
 services:
+    nginx:
+        build:
+            dockerfile: nginx.dockerfile
+            context: .
+        image: fnoliveira/nginx
+        container_name: nginx
+        ports:
+            - "80:80"
+        networks: 
+            - prod-network
+        depends_on: 
+            - "node1"
+            - "node2"
+
     tc-as:
         build:
             dockerfile: tc-as.dockerfile
@@ -10,6 +24,7 @@ services:
             - "9998:9998"
         networks: 
             - prod-network
+
     tc-rest:
         build:
             dockerfile: tc-rest.dockerfile
@@ -27,15 +42,34 @@ services:
             dockerfile: tc-ui.dockerfile
             context: .
         image: fnoliveira/tc-ui
-        container_name: tc-ui
+        container_name: tc-ui-1
         ports:
-            - "3000:3000"
+            - "3000"
         networks: 
             - prod-network
         depends_on:
             - "tc-rest"
             - "tc-as"
+
+    node2:
+        build:
+            dockerfile: tc-ui.dockerfile
+            context: .
+        image: fnoliveira/tc-ui
+        container_name: tc-ui-2
+        ports:
+            - "3000"
+        networks: 
+            - prod-network
+        depends_on:
+            - "tc-rest"
+            - "tc-as"
+
+
 networks:
   prod-network:
     external:
       name: prod-network
+volumes:
+  mysqldb-vol:
+    external: true
