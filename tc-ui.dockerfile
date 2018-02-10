@@ -5,7 +5,6 @@ RUN mkdir -p /var/www
 COPY deploy/prod/ui/. /var/www
 WORKDIR /var/www
 
-RUN rm -rf node_modules / rd /s /q node_modules
 RUN npm i -g @angular/cli@latest
 RUN npm cache clear --force 
 RUN npm cache verify
