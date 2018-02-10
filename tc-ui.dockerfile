@@ -15,6 +15,6 @@ RUN apk update \
 #Angular CLI
 RUN npm install -g @angular/cli@latest
 
-RUN npm install 
+RUN npm install
 ENTRYPOINT ["npm", "start"]
-EXPOSE 3000
+EXPOSE 4200
