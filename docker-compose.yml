@@ -35,3 +35,7 @@ services:
         depends_on:
             - "tc-rest"
             - "tc-as"
+networks:
+  default:
+    external:
+      name: prod-network
