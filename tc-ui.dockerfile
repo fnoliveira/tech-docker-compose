@@ -9,5 +9,5 @@ RUN npm i -g @angular/cli@latest
 RUN npm cache clear --force 
 RUN npm cache verify
 RUN npm install
-ENTRYPOINT ["npm", "build"]
+ENTRYPOINT ["npm", "start"]
 EXPOSE 4200
