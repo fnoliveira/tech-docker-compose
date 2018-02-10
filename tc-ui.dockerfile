@@ -8,6 +8,7 @@ WORKDIR /var/www
 RUN npm i -g @angular/cli@latest
 RUN npm cache clear --force 
 RUN npm cache verify
+RUN npm install -g fullcalendar
 RUN npm install
 ENTRYPOINT ["npm", "start"]
 EXPOSE 4200
