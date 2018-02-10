@@ -1,0 +1,37 @@
+version: '3'
+services:
+    tc-as:
+        build:
+            dockerfile: tc-as.dockerfile
+            context: .
+        image: fnoliveira/tc-as
+        container_name: tc-as
+        ports:
+            - "9998:9998"
+        networks: 
+            - prod-network
+    tc-rest:
+        build:
+            dockerfile: tc-rest.dockerfile
+            context: .
+        image: fnoliveira/tc-rest
+        container_name: tc-rest
+        ports:
+            - "9090:9090"
+        networks: 
+            - prod-network
+        depends_on:
+            - "tc-as"
+    node1:
+        build:
+            dockerfile: tc-ui.dockerfile
+            context: .
+        image: fnoliveira/tc-ui
+        container_name: tc-ui
+        ports:
+            - "3000:3000"
+        networks: 
+            - prod-network
+        depends_on:
+            - "tc-rest"
+            - "tc-as"
