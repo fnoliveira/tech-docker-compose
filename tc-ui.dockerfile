@@ -9,5 +9,5 @@ RUN npm cache clear --force
 RUN npm cache verify
 RUN npm install
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["npm", "build"]
 EXPOSE 4200
