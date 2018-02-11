@@ -5,6 +5,7 @@ RUN mkdir -p /var/www
 COPY deploy/prod/ui/. /var/www
 WORKDIR /var/www
 
+RUN npm install -g angular-cli@latest && npm cache clean
 RUN npm cache clear --force 
 RUN npm cache verify
 RUN npm install
