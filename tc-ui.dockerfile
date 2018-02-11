@@ -9,5 +9,5 @@ RUN npm cache clear --force
 RUN npm cache verify
 RUN npm install
 
-ENTRYPOINT ["npm", "run", "build"]
+ENTRYPOINT ["ng", "s", "--env=local"]
 EXPOSE 4200
