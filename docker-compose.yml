@@ -24,8 +24,6 @@ services:
             - "9998:9998"
         networks: 
             - prod-network
-        depends_on:
-            - "mysqldb"
 
     tc-rest:
         build:
