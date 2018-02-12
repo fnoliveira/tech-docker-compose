@@ -44,7 +44,7 @@ services:
         image: fnoliveira/tc-ui
         container_name: tc-ui-1
         ports:
-            - "3000"
+            - "4200"
         networks: 
             - prod-network
         depends_on:
@@ -58,7 +58,7 @@ services:
         image: fnoliveira/tc-ui
         container_name: tc-ui-2
         ports:
-            - "3000"
+            - "4200"
         networks: 
             - prod-network
         depends_on:
