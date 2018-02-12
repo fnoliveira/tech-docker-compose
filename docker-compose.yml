@@ -1,19 +1,5 @@
 version: '3'
 services:
-    nginx:
-        build:
-            dockerfile: nginx.dockerfile
-            context: .
-        image: fnoliveira/nginx
-        container_name: nginx
-        ports:
-            - "80:80"
-        networks: 
-            - prod-network
-        depends_on: 
-            - "node1"
-            - "node2"
-
     tc-as:
         build:
             dockerfile: tc-as.dockerfile
@@ -51,19 +37,6 @@ services:
             - "tc-rest"
             - "tc-as"
 
-    node2:
-        build:
-            dockerfile: tc-ui.dockerfile
-            context: .
-        image: fnoliveira/tc-ui
-        container_name: tc-ui-2
-        ports:
-            - "4200"
-        networks: 
-            - prod-network
-        depends_on:
-            - "tc-rest"
-            - "tc-as"
 networks:
   prod-network:
     external:
