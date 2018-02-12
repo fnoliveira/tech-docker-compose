@@ -23,19 +23,6 @@ services:
             - prod-network
         depends_on:
             - "tc-as"
-    node1:
-        build:
-            dockerfile: tc-ui.dockerfile
-            context: .
-        image: fnoliveira/tc-ui
-        container_name: tc-ui-1
-        ports:
-            - "80:4200"
-        networks: 
-            - prod-network
-        depends_on:
-            - "tc-rest"
-            - "tc-as"
 
 networks:
   prod-network:
