@@ -89,6 +89,7 @@ echo "ui"
 cd /var/tc/www
 sudo git pull https://github.com/fnoliveira/tech-control-ui.git
 sudo npm cache verify
+sudo pm2 stop server.js
 sudo npm install --unsafe-perm
 sudo npm start
 
