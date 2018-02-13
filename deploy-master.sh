@@ -19,7 +19,7 @@ else
 
         docker rm $(docker ps -a -q)
 
-        docker run -d -p 3306:3306 --name mysql-docker-container --net=prod-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=tecdb -e MYSQL_USER=root -e MYSQL_PASSWORD=root -v mysqldb-vol:/var/lib/mysql mysql:latest
+        docker run -d -p 3306:3306 --name mysql-docker-container --net=prod-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=tecdb -e MYSQL_USER=root -e MYSQL_PASSWORD=root -v mysqldb-vol:/var/lib/mysql mysql:latest --restart=always
 
         docker start mysql-docker-container
 
